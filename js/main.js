@@ -25,37 +25,28 @@ var quotes = [
 }
 ];
 
-
 var quoteBtn = document.getElementById('getQuote')
-
-var testA = 'AAAAAAAAAA'
-var testB = 'BBBBBBBBBB'
-
 var quoteOutput = document.getElementById('quoteOutput')
 var authorOutput = document.getElementById('authorOutput')
 
-currentIndex = 0
+var currentIndex = 0
 
 quoteBtn.onclick=function(){
     
     for (var i=0;i<quotes.length;i++){
         if (currentIndex==i){
-            displayData()
+            displayData(currentIndex)
 
         }
         else if(currentIndex==quotes.length){
             currentIndex=0
-            displayData()
+            displayData(currentIndex)
         }
     }
     currentIndex +=1
-    console.log(currentIndex)
-    console.log(quoteOutput)
-    console.log(authorOutput)
-    
 }
 
-var displayData = function(){
-    quoteOutput.innerHTML=quotes[currentIndex].quoteDescription
-    authorOutput.innerHTML=quotes[currentIndex].author
+var displayData = function(quoteId){
+    quoteOutput.innerHTML=quotes[quoteId].quoteDescription
+    authorOutput.innerHTML=quotes[quoteId].author
 }
